@@ -15,6 +15,12 @@ const launchBrowserTask = {
       required: true,
       hideHandle: true
     }
+  ],
+  outputs: [
+    {
+      type: TaskParamType.BROWSER_INSTANCE,
+      name: "Web page"
+    }
   ]
 }
 
@@ -31,6 +37,16 @@ const PageToHtmlTask = {
       type: TaskParamType.BROWSER_INSTANCE,
       required: true,
       hideHandle: false
+    }
+  ],
+  outputs: [
+    {
+      name: "Html",
+      type: TaskParamType.STRING
+    },
+    {
+      name: "Web page",
+      type: TaskParamType.BROWSER_INSTANCE
     }
   ]
 }

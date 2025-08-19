@@ -1,10 +1,11 @@
-import { memo } from "react";
-import { NodeProps } from "@xyflow/react";
-import NodeCard from "./NodeCard";
+import { taskRegistry } from "@/lib/workflow/task/registry";
 import { AppNodeData } from "@/types/appNodes";
+import { NodeProps } from "@xyflow/react";
+import { memo } from "react";
+import NodeCard from "./NodeCard";
 import NodeHeader from "./NodeHeader";
 import NodeInputs, { NodeInput } from "./NodeInput";
-import { taskRegistry } from "@/lib/workflow/task/registry";
+import { NodeOutputs, NodeOutput } from "./NodeOutputs";
 
 const NodeComponenet = memo((props: NodeProps) => {
   const nodeData = props.data as AppNodeData;
@@ -16,6 +17,11 @@ const NodeComponenet = memo((props: NodeProps) => {
         <NodeInput key={val.name} input={val} nodeId={props.id} />)
       )}
     </NodeInputs>
+    <NodeOutputs>
+      {task.outputs.map(val => (
+        <NodeOutput key={val.name} output={val} />
+      ))}
+    </NodeOutputs>
   </NodeCard>
 });
 

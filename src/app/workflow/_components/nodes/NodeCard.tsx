@@ -6,7 +6,7 @@ import { useReactFlow } from "@xyflow/react";
 const NodeCard = (props: { children: React.ReactNode, nodeId: string, isSelected: boolean }) => {
   const { getNode, setCenter } = useReactFlow();
   return (
-    <div className={cn("bg-background border overflow-hidden rounded-md cursor-pointer border-separate flex flex-col gap-1 text-xs", props.isSelected && "border-primary")}
+    <div className={cn("bg-background border  rounded-md cursor-pointer border-separate flex flex-col gap-1 text-xs", props.isSelected && "border-primary")}
       onDoubleClick={() => {
         const node = getNode(props.nodeId);
         if (!node) return;
